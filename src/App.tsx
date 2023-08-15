@@ -9,7 +9,7 @@ function App() {
   const {loading,user} = useUser()
   
   return (
-    <main className='grid h-screen m-auto max-w-7xl bg-slate-50 place-items-center'>
+    <main className='p-4 bg-white rounded-md shadow-md shadow-black/30'>
       {
         loading ? <Loader/> :  
         <Switch>
