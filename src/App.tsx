@@ -8,7 +8,7 @@ import {Route,Switch} from "react-router-dom"
 function App() {
   const {loading,user} = useUser()
 
-  console.log(user)
+  console.log(loading,user,loading && !user)
   
   return (
     <main className='grid h-screen m-auto max-w-7xl bg-slate-50 place-items-center'>

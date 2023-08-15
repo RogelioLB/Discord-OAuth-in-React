@@ -8,7 +8,7 @@ interface User{
     id:string
 }
 export default function useUser(){
-    const [loading,setLoading] = useState(false)
+    const [loading,setLoading] = useState(true)
     const [user,setUser] = useState<User | null>(null)
     const [expiration_date,setExpirationDate] = useState(localStorage.getItem("expiration_date") as string)
     const [access_token,setAccessToken] = useState(localStorage.getItem("access_token") as string)
