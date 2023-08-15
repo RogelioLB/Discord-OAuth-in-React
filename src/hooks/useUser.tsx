@@ -16,16 +16,15 @@ export default function useUser(){
 
     useEffect(()=>{
         if(access_token && new Date(expiration_date).getTime() >= new Date().getTime()){
-            setLoading(true)
             fetch("https://discord.com/api/users/@me",{
                 headers:{
                     "Authorization": `Bearer ${access_token}`
                 }
             }).then(res=>res.json()).then(data=>{
                 setUser(data)
-            }).finally(()=>setLoading(false))
+                setLoading(false)
+        })
         }else if(refresh_token){
-            setLoading(true)
             RefresToken(refresh_token).then((data)=>{
                 const {access_token,refresh_token,expires_in} = data;
                 const expiration_date = new Date()
@@ -38,6 +37,8 @@ export default function useUser(){
                 setRefreshToken(refresh_token)
                 setLoading(false)
             })
+        }else{
+            setLoading(false)
         }
     },[access_token,refresh_token,expiration_date])
 
